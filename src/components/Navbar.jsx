@@ -33,7 +33,7 @@ export default function Navbar({ user, onLogout, activeTab, setActiveTab, setPag
             </button>
             
             <div className="flex items-center gap-4 pl-4 border-l border-slate-700">
-              <span className="text-sm text-slate-400">Halo, <strong className="text-amber-500">{user}</strong></span>
+              <span className="hidden md:flex text-sm text-slate-400">Halo, <strong className="text-amber-500">{user}</strong></span>
               <button 
                 onClick={onLogout} 
                 className="bg-red-500/20 hover:bg-red-500 text-red-400 hover:text-white px-3 py-1.5 rounded text-sm transition duration-300 cursor-pointer"
