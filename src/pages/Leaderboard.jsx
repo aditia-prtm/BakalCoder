@@ -1,6 +1,19 @@
 import React from 'react';
 
 export default function Leaderboard() {
+  const dataUser = [
+    {rank: 1, nama: "Khvicha Kvaratskhelia", institusi: "Paris Saint-Germain", poin: 300},
+    {rank: 2, nama: "Ousmane Dembele", institusi: "Paris Saint-Germain", poin: 286},
+    {rank: 3, nama: "Harry Kane", institusi: "FC Bayern Munchen", poin: 261},
+    {rank: 4, nama: "Declan Rice", institusi: "Arsenal", poin: 215},
+    {rank: 5, nama: "Michael Olise", institusi: "FC Bayern Munchen", poin: 196},
+    {rank: 6, nama: "Lamine Yamal", institusi: "FC Barcelona", poin: 172},
+    {rank: 7, nama: "Vitinha", institusi: "Paris Saint-Germain", poin: 127},
+    {rank: 8, nama: "Kylian Mbappe", institusi: "Real Madrid", poin: 125},
+    {rank: 9, nama: "Bruno Fernandes", institusi: "Manhester United", poin: 96},
+    {rank: 10, nama: "Erling Haaland", institusi: "Manhester City", poin: 90}
+  ];
+
   return (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold text-amber-500 border-b border-slate-800 pb-3">Leaderboard</h2>
@@ -15,67 +28,18 @@ export default function Leaderboard() {
               <th className="p-4">Poin</th>
             </tr>
           </thead>
+
           <tbody className="divide-y divide-slate-800 text-sm text-slate-300">
+          {dataUser.map((user) => {
+            return (
             <tr className="hover:bg-slate-800/30">
-              <td className="p-4 font-mono text-cyan-400">1</td>
-              <td className="p-4 font-semibold text-white">Khvicha Kvaratskhelia</td>
-              <td className="p-4">Paris Saint-Germain</td>
-              <td className="p-4">300</td>
+              <td className="p-4 font-mono text-cyan-400">{user.rank}</td>
+              <td className="p-4 font-semibold text-white">{user.nama}</td>
+              <td className="p-4">{user.institusi}</td>
+              <td className="p-4">{user.poin}</td>
             </tr>
-            <tr className="hover:bg-slate-800/30">
-              <td className="p-4 font-mono text-cyan-400">2</td>
-              <td className="p-4 font-semibold text-white">Ousmane Dembele</td>
-              <td className="p-4">Paris Saint-Germain</td>
-              <td className="p-4">286</td>
-            </tr>
-            <tr className="hover:bg-slate-800/30">
-              <td className="p-4 font-mono text-cyan-400">3</td>
-              <td className="p-4 font-semibold text-white">Harry Kane</td>
-              <td className="p-4">FC Bayern Munchen</td>
-              <td className="p-4">280</td>
-            </tr>
-            <tr className="hover:bg-slate-800/30">
-              <td className="p-4 font-mono text-cyan-400">4</td>
-              <td className="p-4 font-semibold text-white">Declan Rice</td>
-              <td className="p-4">Arsenal</td>
-              <td className="p-4">241</td>
-            </tr>
-            <tr className="hover:bg-slate-800/30">
-              <td className="p-4 font-mono text-cyan-400">5</td>
-              <td className="p-4 font-semibold text-white">Michael Olise</td>
-              <td className="p-4">FC Bayern Munchen</td>
-              <td className="p-4">217</td>
-            </tr>
-            <tr className="hover:bg-slate-800/30">
-              <td className="p-4 font-mono text-cyan-400">6</td>
-              <td className="p-4 font-semibold text-white">Lamine Yamal</td>
-              <td className="p-4">FC Barcelona</td>
-              <td className="p-4">181</td>
-            </tr>
-            <tr className="hover:bg-slate-800/30">
-              <td className="p-4 font-mono text-cyan-400">7</td>
-              <td className="p-4 font-semibold text-white">Vitinha</td>
-              <td className="p-4">Paris Saint-Germain</td>
-              <td className="p-4">167</td>
-            </tr>
-            <tr className="hover:bg-slate-800/30">
-              <td className="p-4 font-mono text-cyan-400">8</td>
-              <td className="p-4 font-semibold text-white">Kylian Mbappe</td>
-              <td className="p-4">Real Madrid</td>
-              <td className="p-4">164</td>
-            </tr>
-            <tr className="hover:bg-slate-800/30">
-              <td className="p-4 font-mono text-cyan-400">9</td>
-              <td className="p-4 font-semibold text-white">Bruno Fernandes</td>
-              <td className="p-4">Manchester United</td>
-              <td className="p-4 text-white">109</td>
-            </tr>
-            <tr className="hover:bg-slate-800/30">
-              <td className="p-4 font-mono text-cyan-400">10</td>
-              <td className="p-4 font-semibold text-white">Erling Haaland</td>
-              <td className="p-4">Manchester City</td>
-              <td className="p-4 text-white">97</td>
-            </tr>
+            );
+          })}
           </tbody>
         </table>
       </div>

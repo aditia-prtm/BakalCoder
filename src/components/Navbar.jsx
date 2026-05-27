@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function Navbar({ user, onLogout, activeTab, setActiveTab, setPage }) {
   return (
-    <nav className="bg-slate-900 border-b border-slate-800 text-white px-16 py-6 flex justify-between items-center sticky top-0 z-50">
+    <nav className="bg-slate-900 border-b border-slate-800 text-white px-16 py-6 flex justify-center md:justify-between items-center sticky top-0 z-50">
       <div 
-        className="text-2xl font-bold tracking-wider text-cyan-400 cursor-pointer"
+        className="hidden md:flex text-2xl font-bold tracking-wider text-cyan-400 cursor-pointer"
         onClick={() => { setPage('landing'); setActiveTab('home'); }}
       >
         AD<span className='text-amber-500'>TX</span>
@@ -23,7 +23,7 @@ export default function Navbar({ user, onLogout, activeTab, setActiveTab, setPag
               onClick={() => setActiveTab('problems')} 
               className={`hover:text-cyan-400 transition duration-300 cursor-pointer ${activeTab === 'problems' ? 'text-cyan-400 font-semibold' : 'text-slate-300'}`}
             >
-              Problem Set
+              Problem
             </button>
             <button 
               onClick={() => setActiveTab('leaderboard')} 
