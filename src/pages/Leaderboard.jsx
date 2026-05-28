@@ -33,10 +33,10 @@ export default function Leaderboard() {
           {dataUser.map((user) => {
             return (
             <tr className="hover:bg-slate-800/30">
-              <td className="p-4 font-mono text-cyan-400">{user.rank}</td>
+              <td className="p-4">{user.rank}</td>
               <td className="p-4 font-semibold text-white">{user.nama}</td>
               <td className="p-4">{user.institusi}</td>
-              <td className="p-4">{user.poin}</td>
+              <td className="p-4 font-mono text-cyan-500">{user.poin}</td>
             </tr>
             );
           })}

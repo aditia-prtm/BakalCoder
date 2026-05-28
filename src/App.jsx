@@ -4,6 +4,7 @@ import LoginPage from './pages/LoginPage';
 import Courses from './pages/Courses';
 import ProblemSet from './pages/ProblemSet';
 import Leaderboard from './pages/Leaderboard';
+import HomePage from './pages/HomePage';
 
 export default function App() {
   const [user, setUser] = useState(null); 
@@ -44,25 +45,7 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-6 py-8">
           
           {/* TAB: HOME (Sekarang bersih tanpa navbar) */}
-          {activeTab === 'home' && (
-            <div className="text-center py-20 space-y-6 mt-24">
-              <h1 className="text-8xl font-extrabold text-cyan-500">AD<span className="text-amber-500">TX</span> Course</h1>
-              <h1 className="text-5xl font-bold text-white tracking-tight">
-                Kuasai Algoritma & <span className="text-amber-500">Struktur Data</span>
-              </h1>
-              <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-                Platform privat untuk belajar dan mengasah logika coding
-              </p>
-              {!user && (
-                <button 
-                  onClick={() => setPage('login')}
-                  className="bg-cyan-500 hover:bg-cyan-600 hover:scale-105 text-slate-950 font-bold px-8 py-3 rounded-lg text-lg transition shadow-lg shadow-cyan-500/20 duration-300"
-                >
-                  Mulai Belajar Sekarang
-                </button>
-              )}
-            </div>
-          )}
+          {activeTab === 'home' && <HomePage user={user} setPage={setPage} />}
 
           {/* TAB: COURSES */}
           {activeTab === 'courses' && <Courses />}
