@@ -19,8 +19,8 @@ export default function App() {
 
   const handleLogout = () => {
     setUser(null);
-    setActiveTab('home');
     setPage('landing');
+    setActiveTab('home');
   };
 
   return (

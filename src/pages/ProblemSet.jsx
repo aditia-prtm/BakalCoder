@@ -36,8 +36,8 @@ export default function ProblemSet() {
                     {problem.id}
                   </td>
                   <td className="p-4 font-semibold text-white cursor-pointer">
-                    <a href={problem.source} className="hover:text-cyan-500 duration-300">
-                    {problem.name}
+                    <a href={problem.source} className="hover:text-cyan-500 duration-200">
+                      {problem.name}
                     </a>
                   </td>
                   <td className="p-4">
