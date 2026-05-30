@@ -35,7 +35,7 @@ export default function ProblemSet() {
             <tr className="bg-slate-800/50 text-amber-500 text-sm border-b border-slate-800">
               <th className="p-4">ID</th>
               <th className="p-4">Nama Soal</th>
-              <th className="p-4">Kategori</th>
+              <th className="p-4 hidden md:flex">Kategori</th>
               <th className="p-4">Tingkat Kesulitan</th>
             </tr>
           </thead>
@@ -51,7 +51,7 @@ export default function ProblemSet() {
                       {problem.name}
                     </a>
                   </td>
-                  <td className="p-4">
+                  <td className="p-4 hidden md:flex">
                     {problem.tag}
                   </td>
                   <td className="p-4">

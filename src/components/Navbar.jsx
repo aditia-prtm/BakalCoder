@@ -7,7 +7,7 @@ export default function Navbar({ user, onLogout, activeTab, setActiveTab, setPag
         AD<span className='text-amber-500'>TX</span>
       </div>
 
-      <div className="flex items-center gap-5 md:gap-12">
+      <div className="flex items-center gap-3 md:gap-12">
         {user ? (
           <>
             <button 
