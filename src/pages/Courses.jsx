@@ -3,7 +3,7 @@ import React from 'react';
 export default function Courses() {
   return (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold text-amber-500 border-b border-slate-800 pb-3">Daftar Silabus Kelas</h2>
+      <h2 className="text-3xl font-bold text-amber-500 border-b border-slate-800 pb-3">Learning Path</h2>
       <div className="grid md:grid-cols-2 gap-14">
         <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:scale-105 duration-300 cursor-pointer">
           <div className="text-cyan-400 font-mono text-sm mb-2">BASIC</div>

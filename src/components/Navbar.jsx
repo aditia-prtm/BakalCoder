@@ -3,30 +3,30 @@ import React from 'react';
 export default function Navbar({ user, onLogout, activeTab, setActiveTab, setPage }) {
   return (
     <nav className="bg-slate-900 border-b border-slate-800 text-white px-16 py-6 flex justify-center md:justify-between items-center sticky top-0 z-50">
-      <div className="hidden md:flex text-2xl font-bold tracking-wider text-cyan-400 cursor-pointer">
+      <div className="hidden md:flex text-2xl pr-10 font-bold tracking-wider text-cyan-400 cursor-pointer">
         AD<span className='text-amber-500'>TX</span>
       </div>
 
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-5 md:gap-12">
         {user ? (
           <>
             <button 
               onClick={() => setActiveTab('courses')} 
               className={`hover:text-cyan-400 transition duration-300 cursor-pointer ${activeTab === 'courses' ? 'text-cyan-400 font-semibold' : 'text-slate-300'}`}
             >
-              Courses
+              COURSES
             </button>
             <button 
               onClick={() => setActiveTab('problems')} 
               className={`hover:text-cyan-400 transition duration-300 cursor-pointer ${activeTab === 'problems' ? 'text-cyan-400 font-semibold' : 'text-slate-300'}`}
             >
-              Problem
+              PROBLEM
             </button>
             <button 
               onClick={() => setActiveTab('leaderboard')} 
               className={`hover:text-cyan-400 transition duration-300 cursor-pointer ${activeTab === 'leaderboard' ? 'text-cyan-400 font-semibold' : 'text-slate-300'}`}
             >
-              Leaderboard
+              LEADERBOARD
             </button>
             
             <div className="flex items-center gap-4 pl-4 border-l border-slate-700">

@@ -16,7 +16,7 @@ export default function Leaderboard() {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold text-amber-500 border-b border-slate-800 pb-3">Leaderboard</h2>
+      <h2 className="text-3xl font-bold text-amber-500 border-b border-slate-800 pb-3">Top Users</h2>
       <p className="italic text-amber-400">Ayooo!... Jangan mau ketinggalan sama temen kamu</p>
       <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
         <table className="w-full text-left border-collapse">
