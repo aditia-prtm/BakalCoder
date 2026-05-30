@@ -17,8 +17,8 @@ export default function LoginPage({ onLogin, onCancel }) {
   return (
     <div className="min-h-[calc(100vh-73px)] bg-slate-950 flex items-center justify-center p-4">
       <div className="bg-slate-900 border border-slate-800 p-8 mt-20 rounded-xl w-full max-w-md shadow-2xl">
-        <h2 className="text-2xl font-bold text-amber-500 mb-2 text-center">Selamat Datang</h2>
-        <p className="text-slate-400 text-sm text-center mb-6">Masuk untuk mengakses materi dan soal</p>
+        <h2 className="text-2xl font-bold text-amber-500 mb-2 text-center">WELCOME !</h2>
+        <p className="text-slate-400 text-sm text-center mb-6">Login untuk mengakses materi dan soal</p>
         
         {error && (
           <div className="bg-red-500/10 border border-red-500 text-red-400 text-sm p-3 rounded mb-4">
@@ -51,14 +51,14 @@ export default function LoginPage({ onLogin, onCancel }) {
             type="submit" 
             className="w-full bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-bold py-2.5 rounded transition duration-300 mt-2"
           >
-            Masuk Sekarang
+            Login
           </button>
           <button 
             type="button" 
             onClick={onCancel}
             className="w-full bg-transparent hover:bg-slate-800 border border-cyan-500 text-slate-400 py-2 rounded text-sm transition duration-300"
           >
-            Kembali 
+            Back
           </button>
         </form>
       </div>
