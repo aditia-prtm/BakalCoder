@@ -6,7 +6,7 @@ export default function Courses() {
       <h2 className="text-3xl font-bold text-amber-500 border-b border-slate-800 pb-3">Daftar Silabus Kelas</h2>
       <div className="grid md:grid-cols-3 gap-6">
         <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:scale-105 duration-300 cursor-pointer">
-          <div className="text-cyan-400 font-mono text-sm mb-2">FUNDAMENTAL</div>
+          <div className="text-cyan-400 font-mono text-sm mb-2">BASIC</div>
           <h3 className="text-xl font-bold mb-3 text-amber-500">Struktur Data Linear & Notasi Big O</h3>
           <p className="text-amber-50 text-sm mb-4">Pelajari cara penyimpanan data berurutan di memori serta dasar pengukuran efisiensi kode program menggunakan Notasi Big O</p>
           <h5 className="text-sm text-cyan-300 font-semibold"><span className="font-bold">Materi : </span>Array, Linked List, Stack, Queue</h5>

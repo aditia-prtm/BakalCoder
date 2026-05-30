@@ -2,11 +2,22 @@ import React from 'react';
 
 export default function ProblemSet() {
   const problemsets = [
-    {id : "CP-101", name : "BIlangan Agak Prima", tag: "Implementation / Math", diff: "Easy", source: "https://tlx.toki.id/courses/competitive-1/chapters/02/problems/A"},
-    {id : "CP-102", name : "Angklung Ajaib - (A) GEMASTIK 2025 Final Pemrograman", tag: "Implementation", diff: "Easy", source: "https://tlx.toki.id/problems/gemastik-2025-pemrograman-final/A"},
-    {id : "CP-201", name : "Pembangkit Listrik - OSNP Informatika 2023 B3", tag: "Graph / DFS", diff: "Medium", source: "https://tlx.toki.id/problems/osnp-2023/B3"},
-    {id : "CP-301", name : "Bogor Defence - OSN Informatika 2023 1A", tag: "Dynamic Programming", diff: "Hard", source: "https://tlx.toki.id/problems/osn-2023/1A"},
-    {id : "CP-302", name : "Manual Car - OSN Informatika 2024 2A", tag: "Binary Search / Segment Tree", diff: "Hard", source: "https://tlx.toki.id/problems/osn-2024/2A"}
+    // EASY
+    {id : "101", name : "Perkenalan Pencarian Linear", tag: "Searching", diff: "Easy", source: "https://tlx.toki.id/courses/competitive-1/chapters/03/problems/A"},
+    {id : "102", name : "Perkenalan Pengurutan", tag: "Sorting", diff: "Easy", source: "https://tlx.toki.id/courses/competitive-1/chapters/03/problems/B"},
+    {id : "103", name : "BIlangan Agak Prima", tag: "Implementation / Math", diff: "Easy", source: "https://tlx.toki.id/courses/competitive-1/chapters/02/problems/A"},
+    {id : "104", name : "Tupai Loncat - (J) GEMASTIK 2024 Penyisihan Pemrograman", tag: "Sorting", diff: "Easy", source: "https://tlx.toki.id/problems/gemastik-2024-pemrograman-penyisihan/J"},
+    {id : "105", name : "Angklung Ajaib - (A) GEMASTIK 2025 Final Pemrograman", tag: "Implementation", diff: "Easy", source: "https://tlx.toki.id/problems/gemastik-2025-pemrograman-final/A"},
+    {id : "106", name : "Mencari Bendera - (D) Find IT 2025 Final CP (UGM)", tag: "Math", diff: "Easy", source: "https://tlx.toki.id/problems/find-it-2025-cp-final/D"},
+
+    // MEDIUM
+    {id : "201", name : "Tebas Tebang Pohon - (C) OSNP Informatika 2024", tag: "Binary Search", diff: "Medium", source: "https://tlx.toki.id/problems/osnp-2024/C"},
+    {id : "202", name : "Pembangkit Listrik - (B3) OSNP Informatika 2023", tag: "Graph / DFS", diff: "Medium", source: "https://tlx.toki.id/problems/osnp-2023/B3"},
+
+    // HARD
+    {id : "301", name : "Bogor Defence - (1A) OSN Informatika 2023", tag: "Dynamic Programming", diff: "Hard", source: "https://tlx.toki.id/problems/osn-2023/1A"},
+    {id : "302", name : "Manual Car - (2A) OSN Informatika 2024", tag: "Greedy / Binary Search / Segment Tree", diff: "Hard", source: "https://tlx.toki.id/problems/osn-2024/2A"},
+    {id : "303", name : "Djo, Djo, dan Tusuk Gigi - (D) BNPCHS 2022 Final (BINUS)", tag: "Segment Tree", diff: "Hard", source: "https://tlx.toki.id/problems/bnpchs-2022-final/D"}
   ];
 
   const diffStyles = {
@@ -22,7 +33,7 @@ export default function ProblemSet() {
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="bg-slate-800/50 text-amber-500 text-sm border-b border-slate-800">
-              <th className="p-4">ID Soal</th>
+              <th className="p-4">ID</th>
               <th className="p-4">Nama Soal</th>
               <th className="p-4">Kategori</th>
               <th className="p-4">Tingkat Kesulitan</th>
