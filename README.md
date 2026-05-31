@@ -1,4 +1,4 @@
-deploy : https://aditia-prtm.github.io/ADTX-Course/
+https://aditia-prtm.github.io/ADTX-Course/
 
 # React + Vite
 
