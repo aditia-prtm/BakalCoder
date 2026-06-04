@@ -2,14 +2,18 @@ import React from 'react';
 
 export default function Navbar({ user, onLogout, activeTab, setActiveTab, setPage }) {
   return (
-    <nav className="bg-slate-900 border-b border-slate-800 text-white px-16 py-6 flex justify-center md:justify-between items-center sticky top-0 z-50">
-      <div className="hidden md:flex text-2xl pr-10 font-bold tracking-wider text-cyan-400 cursor-pointer">
-        AD<span className='text-amber-500'>TX</span>
-      </div>
+    <>
+      {user && (
+        <nav className="bg-slate-900 border-b border-slate-800 text-white px-16 py-6 flex justify-center md:justify-between items-center sticky top-0 z-50">
+          <div className="hidden md:flex text-2xl pr-10 font-bold tracking-wider text-cyan-400 cursor-pointer">
+            <span className='text-amber-500'>&lt;</span>
+            <span>/</span>
+            <span className='text-amber-500'>&gt;</span>
+            <span>AD</span>
+            <span className='text-amber-500'>TX</span>
+          </div>
 
-      <div className="flex items-center gap-3 md:gap-12">
-        {user ? (
-          <>
+          <div className="flex items-center gap-3 md:gap-12">
             <button 
               onClick={() => setActiveTab('courses')} 
               className={`hover:text-cyan-400 transition duration-300 cursor-pointer ${activeTab === 'courses' ? 'text-cyan-400 font-semibold' : 'text-slate-300'}`}
@@ -38,16 +42,9 @@ export default function Navbar({ user, onLogout, activeTab, setActiveTab, setPag
                 Logout
               </button>
             </div>
-          </>
-        ) : (
-          <button 
-            onClick={() => setPage('login')} 
-            className="bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-semibold px-4 py-1.5 rounded transition"
-          >
-            Login
-          </button>
-        )}
-      </div>
-    </nav>
+          </div>
+        </nav>
+      )}
+    </>
   );
 }
