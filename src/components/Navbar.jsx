@@ -3,12 +3,8 @@ import { Menu } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Navbar({ user, onLogout, activeTab, setActiveTab }) {
-  const [mobileNav, setMobileMav] = useState(false);
+  const [mobileNav, setMobileNav] = useState(false);
 
-  const moveTo = (nextTab) => {
-    setActiveTab(nextTab);
-    setMobileMav(false);
-  };
 
   return (
     <>
@@ -25,19 +21,19 @@ export default function Navbar({ user, onLogout, activeTab, setActiveTab }) {
 
             <div className="hidden md:flex items-center gap-3 sm:gap-5 md:gap-8 lg:gap-12">
               <button 
-                onClick={() => moveTo('courses')} 
+                onClick={() => setActiveTab('courses')} 
                 className={`hover:text-cyan-400 transition duration-300 cursor-pointer ${activeTab === 'courses' ? 'text-cyan-400 font-semibold' : 'text-slate-300'}`}
               >
                 COURSES
               </button>
               <button 
-                onClick={() => moveTo('problems')} 
+                onClick={() => setActiveTab('problems')} 
                 className={`hover:text-cyan-400 transition duration-300 cursor-pointer ${activeTab === 'problems' ? 'text-cyan-400 font-semibold' : 'text-slate-300'}`}
               >
                 PROBLEM
               </button>
               <button 
-                onClick={() => moveTo('leaderboard')} 
+                onClick={() => setActiveTab('leaderboard')} 
                 className={`hover:text-cyan-400 transition duration-300 cursor-pointer ${activeTab === 'leaderboard' ? 'text-cyan-400 font-semibold' : 'text-slate-300'}`}
               >
                 LEADERBOARD
@@ -55,29 +51,29 @@ export default function Navbar({ user, onLogout, activeTab, setActiveTab }) {
             </div>
 
             <div className='flex md:hidden'>
-              <Menu onClick={() => setMobileMav(!mobileNav)} className={`${mobileNav ? 'text-cyan-400' : 'text-white'} duration-300`}/>
+              <Menu onClick={() => setMobileNav(!mobileNav)} className={`${mobileNav ? 'text-cyan-400' : 'text-white'} duration-300`}/>
             </div>
           </nav>
    
           <div className='flex justify-end'>
             {mobileNav && ( 
-              <div className={`flex md:hidden flex-col items-center rounded-xs border border-slate-800 border-t-0 w-1/3 sm:w-1/4 py-3 bg-slate-900 gap-7 
+              <div className={`flex md:hidden flex-col items-center rounded-xs border border-slate-800 border-t-0 w-5/12 py-3 bg-slate-900 gap-7 
                               [animation:slideLeft_0.3s_ease-out]`}>
                 <span className="w-full text-md pl-3 border-b pb-3 border-slate-700 font-bold text-slate-400">Halo, <strong className="text-amber-500">{user}</strong></span>
                 <button 
-                  onClick={() => moveTo('courses')} 
+                  onClick={() => setActiveTab('courses')} 
                   className={`hover:text-cyan-400 transition duration-300 cursor-pointer w-full  text-left pl-3 ${activeTab === 'courses' ? 'text-cyan-400 font-semibold' : 'text-slate-300'}`}
                 >
                   COURSES
                 </button>
                 <button 
-                  onClick={() => moveTo('problems')} 
+                  onClick={() => setActiveTab('problems')} 
                   className={`hover:text-cyan-400 transition duration-300 cursor-pointer  w-full text-left pl-3 ${activeTab === 'problems' ? 'text-cyan-400 font-semibold' : 'text-slate-300'}`}
                 >
                   PROBLEM
                 </button>
                 <button 
-                  onClick={() => moveTo('leaderboard')} 
+                  onClick={() => setActiveTab('leaderboard')} 
                   className={`hover:text-cyan-400 transition duration-300 cursor-pointer w-full text-left pl-3 ${activeTab === 'leaderboard' ? 'text-cyan-400 font-semibold' : 'text-slate-300'}`}
                 >
                   LEADERBOARD
