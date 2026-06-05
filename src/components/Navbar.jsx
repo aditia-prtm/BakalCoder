@@ -55,7 +55,7 @@ export default function Navbar({ user, onLogout, activeTab, setActiveTab }) {
    
           <div className='flex justify-end'>
             {mobileNav && (
-              <div className="fixed flex md:hidden flex-col items-center rounded-xs border border-slate-800 border-t-0 w-1/3 sm:w-1/4 py-5 bg-slate-900 gap-7">
+              <div className="fixed flex md:hidden flex-col items-center rounded-xs border border-slate-800 border-t-0 w-3/7 py-5 bg-slate-900 gap-7">
                 <span className="w-full text-md pl-3 border-b pb-3 border-slate-700 font-bold text-slate-400">Halo, <strong className="text-amber-500">{user}</strong></span>
                 <button 
                   onClick={() => setActiveTab('courses')} 

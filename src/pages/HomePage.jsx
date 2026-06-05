@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function HomePage({user, setActiveTab}){
     return (
-        <div className="text-center py-20 space-y-6 mt-24">
+        <div className="text-center py-20 space-y-6 mt-5">
             <h1 className="text-8xl font-extrabold text-cyan-500">AD<span className="text-amber-500">TX</span> Course</h1>
             <h1 className="text-5xl font-bold text-white tracking-tight">
                 Kuasai Algoritma & <span className="text-amber-500">Struktur Data</span>
