@@ -38,7 +38,7 @@ export default function App() {
         <LoginPage onLogin={handleLogin} onCancel={() => setActiveTab('home')} />
       ) : (
         /* 3. KONDISI KONTEN UTAMA */
-        <div className="max-w-6xl mx-auto px-6 py-8">
+        <div className="max-w-6xl mx-auto px-6 py-8 pt-30">
           
           {/* TAB: HOME (Sekarang bersih tanpa navbar) */}
           {activeTab === 'home' && <HomePage user={user} setActiveTab={setActiveTab}/>}
