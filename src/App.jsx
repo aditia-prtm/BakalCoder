@@ -23,7 +23,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans">
       
-      {/* 1. KONDISI NAVBAR: Hanya tampil jika halaman BUKAN login DAN tab aktif BUKAN home */}
+      {/* navbar akan tampil dengan kondisi if(activeTab != 'login' && activeTab != 'home') */}
       {activeTab !== 'login' && activeTab !== 'home' && (
         <Navbar 
           user={user} 
@@ -33,23 +33,20 @@ export default function App() {
         />
       )}
 
-      {/* 2. KONDISI HALAMAN LOGIN */}
+       
+      {/* if(activeTab === 'login') arahkan ke loginPage */}
+      {/* else masuk ke page dari activeTab */}
       {activeTab === 'login' ? (
         <LoginPage onLogin={handleLogin} onCancel={() => setActiveTab('home')} />
       ) : (
-        /* 3. KONDISI KONTEN UTAMA */
         <div className="max-w-6xl mx-auto px-6 py-8 pt-30">
           
-          {/* TAB: HOME (Sekarang bersih tanpa navbar) */}
           {activeTab === 'home' && <HomePage user={user} setActiveTab={setActiveTab}/>}
 
-          {/* TAB: COURSES */}
           {activeTab === 'courses' && <Courses />}
 
-          {/* TAB: PROBLEM SET */}
           {activeTab === 'problems' && <ProblemSet />}
 
-          {/* TAB: LEADERBOARD */}
           {activeTab === 'leaderboard' && <Leaderboard />}
 
         </div>
