@@ -6,7 +6,7 @@ import ProblemSet from './pages/ProblemSet';
 import Leaderboard from './pages/Leaderboard';
 import HomePage from './pages/HomePage';
 
-export default function App() {
+function App() {
   const [user, setUser] = useState(null); 
   const [activeTab, setActiveTab] = useState('home'); 
 
@@ -54,3 +54,5 @@ export default function App() {
     </div>
   );
 }
+
+export default App;
