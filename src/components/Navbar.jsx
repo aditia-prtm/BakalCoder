@@ -1,99 +1,131 @@
-import React from 'react';
-import { Menu } from 'lucide-react';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, CodeXml} from 'lucide-react';
 
-export default function Navbar({ user, onLogout, activeTab, setActiveTab }) {
+export default function Navbar({ user, onLogout }) {
   const [mobileNav, setMobileNav] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+  const location = useLocation();
 
+  const isActive = (path) => location.pathname === path;
+
+  const closeMenu = () => {
+    setIsClosing(true);
+    // Tunggu animasi selesai baru tutup
+    setTimeout(() => {
+      setMobileNav(false);
+      setIsClosing(false);
+    }, 300); // sesuai durasi animasi di CSS
+  };
+
+  const toggleMenu = () => {
+    if (mobileNav) {
+      closeMenu();
+    } else {
+      setMobileNav(true);
+      setIsClosing(false);
+    }
+  };
+
+  // Close menu when clicking link
+  const handleLinkClick = (path) => {
+    // Optional: close only if path different
+    // closeMenu();
+  };
 
   return (
-    <>
-      {user && (
-        <div className='flex flex-col fixed w-full'>
-          <nav className="bg-slate-900 border-b border-slate-800 text-white px-8 sm:px-12 md:px-16 py-6 flex justify-between items-center top-0 z-50 ">
-            <div className="flex text-2xl pr-10 font-bold tracking-wider text-cyan-400 cursor-pointer">
-              <span className='text-amber-500'>&lt;</span>
-              <span>/</span>
-              <span className='text-amber-500'>&gt;</span>
-              <span>AD</span>
-              <span className='text-amber-500'>TX</span>
-            </div>
+    <div className='flex flex-col fixed w-full z-50'>
+      <nav className="bg-slate-900/95 backdrop-blur-md border-b border-slate-800 text-white px-6 md:px-12 py-5 flex justify-between items-center">
+        <Link to="/" className="flex justify-center items-center text-2xl font-bold tracking-wider text-cyan-400 cursor-pointer hover:scale-105 transition">
+          <CodeXml className='h-10 text-amber-500' />
+          <span className='pl-1'>Bakal</span>
+          <span className='text-amber-500'>Coder</span>
+        </Link>
 
-            <div className="hidden md:flex items-center gap-3 sm:gap-5 md:gap-8 lg:gap-12">
-              <button 
-                onClick={() => setActiveTab('courses')} 
-                className={`hover:text-cyan-400 transition duration-300 cursor-pointer ${activeTab === 'courses' ? 'text-cyan-400 font-semibold' : 'text-slate-300'}`}
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-8 lg:gap-12">
+          {['/courses', '/problems', '/leaderboard'].map((path, i) => {
+            const labels = ['COURSES', 'PROBLEM', 'LEADERBOARD'];
+            return (
+              <Link 
+                key={i}
+                to={path} 
+                className={`font-medium tracking-wider transition-all duration-300 hover:text-cyan-400 ${isActive(path) ? 'text-cyan-400' : 'text-slate-300'}`}
               >
-                COURSES
-              </button>
-              <button 
-                onClick={() => setActiveTab('problems')} 
-                className={`hover:text-cyan-400 transition duration-300 cursor-pointer ${activeTab === 'problems' ? 'text-cyan-400 font-semibold' : 'text-slate-300'}`}
-              >
-                PROBLEM
-              </button>
-              <button 
-                onClick={() => setActiveTab('leaderboard')} 
-                className={`hover:text-cyan-400 transition duration-300 cursor-pointer ${activeTab === 'leaderboard' ? 'text-cyan-400 font-semibold' : 'text-slate-300'}`}
-              >
-                LEADERBOARD
-              </button>
-              
-              <div className="flex items-center gap-4 pl-4 border-l border-slate-700">
-                <span className="hidden md:flex text-sm text-slate-400">Halo, <strong className="text-amber-500">{user}</strong></span>
-                <button 
-                  onClick={onLogout} 
-                  className="bg-red-500/20 hover:bg-red-500 text-red-400 hover:text-white px-3 py-1.5 rounded text-sm transition duration-300 cursor-pointer"
-                >
-                  Logout
-                </button>
-              </div>
-            </div>
+                {labels[i]}
+              </Link>
+            );
+          })}
 
-            <div className='flex md:hidden'>
-              <Menu onClick={() => setMobileNav(!mobileNav)} className={`${mobileNav ? 'text-cyan-400' : 'text-white'} duration-300`}/>
-            </div>
-          </nav>
-   
-          <div className='flex justify-end'>
-            {mobileNav && ( 
-              <div className={`flex md:hidden flex-col items-center rounded-xs border border-slate-800 border-t-0 w-5/12 py-3 bg-slate-900 gap-7 
-                              [animation:slideDown_0.3s_ease-out]`}>
-                <span className="w-full text-md pl-3 border-b pb-3 border-slate-700 font-bold text-slate-400">Halo, <strong className="text-amber-500">{user}</strong></span>
-                <button 
-                  onClick={() => setActiveTab('courses')} 
-                  className={`hover:text-cyan-400 transition duration-300 cursor-pointer w-full  text-left pl-3 ${activeTab === 'courses' ? 'text-cyan-400 font-semibold' : 'text-slate-300'}`}
-                >
-                  COURSES
-                </button>
-                <button 
-                  onClick={() => setActiveTab('problems')} 
-                  className={`hover:text-cyan-400 transition duration-300 cursor-pointer  w-full text-left pl-3 ${activeTab === 'problems' ? 'text-cyan-400 font-semibold' : 'text-slate-300'}`}
-                >
-                  PROBLEM
-                </button>
-                <button 
-                  onClick={() => setActiveTab('leaderboard')} 
-                  className={`hover:text-cyan-400 transition duration-300 cursor-pointer w-full text-left pl-3 ${activeTab === 'leaderboard' ? 'text-cyan-400 font-semibold' : 'text-slate-300'}`}
-                >
-                  LEADERBOARD
-                </button>
-                
-                <div className="flex items-center gap-4 pl-3 border-slate-700 w-full text-left">
-                  <button 
-                    onClick={onLogout} 
-                    className="bg-red-500/20 hover:bg-red-500 text-red-400 hover:text-white px-3 py-1.5 rounded text-sm transition duration-300 cursor-pointer"
-                  >
-                    Logout
-                  </button>
-                </div>
-              </div>
-            )}
+          <div className="flex items-center gap-4 pl-6 border-l border-slate-700">
+            <span className="text-sm text-slate-400">
+              Halo, <strong className="text-amber-400">{user}</strong>
+            </span>
+            <button 
+              onClick={onLogout} 
+              className="bg-red-500/10 hover:bg-red-500 hover:text-white text-red-400 px-4 py-2 rounded-xl text-sm transition duration-300"
+            >
+              Logout
+            </button>
           </div>
-
         </div>
 
+        {/* Mobile Toggle */}
+        <button 
+          onClick={toggleMenu} 
+          className="md:hidden text-white p-2 hover:bg-slate-800 rounded-xl transition"
+        >
+          {mobileNav ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </nav>
+
+      {/* Mobile Menu dengan Enter & Exit Animation */}
+      {mobileNav && (
+        <div className="md:hidden absolute top-[73px] right-4 z-50">
+          <div 
+            className={`bg-slate-900 border border-slate-700 rounded-3xl py-6 px-7 w-52 shadow-2xl 
+                       ${isClosing ? 'animate-slideOutRight' : 'animate-slideInRight'}`}
+          >
+            <div className="w-full text-md pb-5 border-b border-slate-700 mb-5">
+              Halo, <strong className="text-amber-400">{user}</strong>
+            </div>
+
+            <Link 
+              to="/courses" 
+              onClick={() => handleLinkClick('/courses')}
+              className={`block w-full text-left py-3 px-4 rounded-2xl mb-1 transition ${isActive('/courses') ? 'bg-cyan-500/10 text-cyan-400' : 'hover:bg-slate-800 text-slate-300'}`}
+            >
+              COURSES
+            </Link>
+            
+            <Link 
+              to="/problems" 
+              onClick={() => handleLinkClick('/problems')}
+              className={`block w-full text-left py-3 px-4 rounded-2xl mb-1 transition ${isActive('/problems') ? 'bg-cyan-500/10 text-cyan-400' : 'hover:bg-slate-800 text-slate-300'}`}
+            >
+              PROBLEM
+            </Link>
+            
+            <Link 
+              to="/leaderboard" 
+              onClick={() => handleLinkClick('/leaderboard')}
+              className={`block w-full text-left py-3 px-4 rounded-2xl mb-1 transition ${isActive('/leaderboard') ? 'bg-cyan-500/10 text-cyan-400' : 'hover:bg-slate-800 text-slate-300'}`}
+            >
+              LEADERBOARD
+            </Link>
+
+            <button 
+              onClick={() => { 
+                onLogout(); 
+                closeMenu(); 
+              }} 
+              className="w-full mt-6 bg-red-500/10 hover:bg-red-500 text-red-400 hover:text-white py-3 rounded-2xl text-sm transition duration-300"
+            >
+              Logout
+            </button>
+          </div>
+        </div>
       )}
-    </>
+    </div>
   );
 }

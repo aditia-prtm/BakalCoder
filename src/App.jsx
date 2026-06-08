@@ -1,57 +1,101 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
 import LoginPage from './pages/LoginPage';
+import HomePage from './pages/HomePage';
 import Courses from './pages/Courses';
 import ProblemSet from './pages/ProblemSet';
 import Leaderboard from './pages/Leaderboard';
-import HomePage from './pages/HomePage';
+import { AsteriskSquare } from 'lucide-react';
 
 function App() {
-  const [user, setUser] = useState(null); 
-  const [activeTab, setActiveTab] = useState('home'); 
+  const [user, setUser] = useState(null);
+
+  // Load user dari localStorage saat aplikasi pertama kali dijalankan
+  useEffect(() => {
+    const savedUser = localStorage.getItem('user');
+    if (savedUser) {
+      setUser(savedUser);
+    }
+  }, []);
 
   const handleLogin = (username) => {
     setUser(username);
-    setActiveTab('courses'); 
+    localStorage.setItem('user', username);   // Simpan ke localStorage
   };
 
   const handleLogout = () => {
     setUser(null);
-    setActiveTab('home');
+    localStorage.removeItem('user');         // Hapus dari localStorage
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans">
-      
-      {/* navbar akan tampil dengan kondisi if(activeTab != 'login' && activeTab != 'home') */}
-      {activeTab !== 'login' && activeTab !== 'home' && (
-        <Navbar 
-          user={user} 
-          onLogout={handleLogout} 
-          activeTab={activeTab} 
-          setActiveTab={setActiveTab} 
-        />
-      )}
+    <Router>
+      <div className="min-h-screen bg-slate-950 text-slate-100 font-sans">
+        <Routes>
+          {/* Home */}
+          <Route 
+            path="/" 
+            element={<HomePage user={user} />} 
+          />
 
-       
-      {/* if(activeTab === 'login') arahkan ke loginPage */}
-      {/* else masuk ke page dari activeTab */}
-      {activeTab === 'login' ? (
-        <LoginPage onLogin={handleLogin} onCancel={() => setActiveTab('home')} />
-      ) : (
-        <div className="max-w-6xl mx-auto px-6 py-8 pt-30">
-          
-          {activeTab === 'home' && <HomePage user={user} setActiveTab={setActiveTab}/>}
+          {/* Login */}
+          <Route 
+            path="/login" 
+            element={
+              user ? <Navigate to="/courses" replace /> : 
+              <LoginPage onLogin={handleLogin} />
+            } 
+          />
 
-          {activeTab === 'courses' && <Courses />}
+          {/* Protected Routes */}
+          <Route 
+            path="/courses" 
+            element={
+              user ? (
+                <>
+                  <Navbar user={user} onLogout={handleLogout} />
+                  <div className="w-full">
+                    <Courses />
+                  </div>
+                </>
+              ) : <Navigate to="/login" replace />
+            } 
+          />
 
-          {activeTab === 'problems' && <ProblemSet />}
+          <Route 
+            path="/problems" 
+            element={
+              user ? (
+                <>
+                  <Navbar user={user} onLogout={handleLogout} />
+                  <div className="w-full">
+                    <ProblemSet />
+                  </div>
+                </>
+              ) : <Navigate to="/login" replace />
+            } 
+          />
 
-          {activeTab === 'leaderboard' && <Leaderboard />}
+          <Route 
+            path="/leaderboard" 
+            element={
+              user ? (
+                <>
+                  <Navbar user={user} onLogout={handleLogout} />
+                  <div className="w-full">
+                    <Leaderboard />
+                  </div>
+                </>
+              ) : <Navigate to="/login" replace />
+            } 
+          />
 
-        </div>
-      )}
-    </div>
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
