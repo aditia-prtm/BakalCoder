@@ -1,9 +1,9 @@
 {
-  "name": "ADTXCode",
+  "name": "BakalCoder",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://aditia-prtm.github.io/ADTX-Course",
+  "homepage": "https://aditia-prtm.github.io/BakalCoder",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

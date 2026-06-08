@@ -6,5 +6,5 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   
   // Base path hanya aktif saat build (untuk GitHub Pages)
-  base: process.env.NODE_ENV === 'production' ? '/ADTX-Course/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/BakalCoder/' : '/',
 })
