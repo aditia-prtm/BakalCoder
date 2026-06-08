@@ -46,9 +46,6 @@ export default function LoginPage({ onLogin }) {
               <Lock className="text-cyan-400" size={18} />
               <span className="text-xs font-mono tracking-widest text-cyan-400">SECURE LOGIN</span>
             </div>
-            <div className='flex justify-center items-center my-2'>
-              <img src="public/icon-bakalcoder.png" alt="bakalcoder" className='h-16 rounded-sm'/>
-            </div>
             <h2 className="text-4xl font-bold text-white mb-2">Welcome Back</h2>
             <p className="text-slate-400">Masuk untuk melanjutkan perjalananmu</p>
           </div>
