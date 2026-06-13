@@ -6,19 +6,18 @@ export default function LoginPage({ onLogin }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if (username.trim() === '' || password.trim() === '') {
       setError('Username dan password harus diisi!');
     } else if (password.trim().length < 8) {
       setError('Password harus memiliki setidaknya 8 karakter!');
-      return;
     } else if (!(/^(?=.*[a-zA-Z])(?=.*\d)/.test(password))) {
       setError('Password harus mengandung kombinasi angka dan huruf!');
-      return;
     } else {
       onLogin(username);
       navigate('/courses');

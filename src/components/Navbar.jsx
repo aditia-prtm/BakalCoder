@@ -36,8 +36,8 @@ export default function Navbar({ user, onLogout }) {
   return (
     <div className='flex flex-col fixed w-full z-50'>
       <nav className="bg-slate-900/95 backdrop-blur-md border-b border-slate-800 text-white px-6 md:px-12 py-5 flex justify-between items-center">
-        <Link to="/" className="flex justify-center items-center text-2xl font-bold tracking-wider text-cyan-400 cursor-pointer hover:scale-105 transition">
-          <CodeXml className='h-10 text-amber-500' />
+        <Link to="/" className="group flex justify-center items-center text-2xl font-bold tracking-wider text-cyan-400 cursor-pointer hover:scale-105 transition">
+          <CodeXml size={30} className='text-amber-500 group-hover:rotate-12 transition' />
           <span className='pl-1'>Bakal</span>
           <span className='text-amber-500'>Coder</span>
         </Link>
